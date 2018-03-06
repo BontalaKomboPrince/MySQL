@@ -93,3 +93,45 @@ ALTER TABLE `students`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- Show all the data.
+SELECT * FROM `students`;
+
+-- Show only the first names.
+
+SELECT `nom` FROM `students`;
+-- Show the first names, birthdates and the school of each of them.
+
+SELECT `nom`, `datenaissance`, `school` FROM `students`;
+
+-- Show females students only.
+
+SELECT `idStudent`, `nom`, `prenom`, `datenaissance`, `genre`, `school` FROM `students` WHERE genre='F';
+
+-- Show students that are in the school Andy(2) only.
+
+SELECT `idStudent`, `nom`, `prenom`, `datenaissance`, `genre`, `school` FROM `students` WHERE school='2';
+
+-- Show only the first names of students, but in descending order (DESC). Then do the same but limit the result to 2.
+
+SELECT `nom`FROM `students` ORDER BY 'nom' DESC limit 2;
+
+-- Add Ginette Dalor, born the 01/01/1930 and put her at Central, still in SQL.
+
+INSERT INTO `students`( `nom`, `prenom`, `datenaissance`, `genre`, `school`) VALUES ('Dalor','Ginette','1930/01/01','F','1');
+
+
+-- Modify Ginette (still in SQL) and change her gender and her first name to "Omer".
+
+UPDATE `students` SET `genre`='1930/01/00', `nom`= 'Omer' WHERE nom = 'Ginette';
+
+-- Delete the person that has the 3rd ID.
+
+DELETE FROM `students` WHERE idStudent='3';
+
+-- Modify the School column so that the "1" will be replaced by "Central" and "2" will be remplaced by "Anderlecht". (Watch out for the column type)
+UPDATE `students` SET `school`='Anderlecht' WHERE school='2';
+UPDATE `students` SET `school`='Central' WHERE school='1';
+
+-- Do some others manipulations to see if you understood well.
